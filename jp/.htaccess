@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+ErrorDocument 401 https://www.schoolrulesdb.com/401.html
+ErrorDocument 403 https://www.schoolrulesdb.com/403.html
+ErrorDocument 404 https://www.schoolrulesdb.com/404.html
+ErrorDocument 500 https://www.schoolrulesdb.com/500.html
