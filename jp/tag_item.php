@@ -299,7 +299,8 @@ require("header.php");
           },iterator_to_array($xpath->query('//span[contains(@class, "' . $tag_id_passed_from_previous_page .'")]')));
 
           echo '<div class ="tag_item_each_area">';
-          echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>";     
+          echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>";
+          echo '<div class ="tag_item_each_area_school_name">'.$row['school_name']."</div>\n";
           foreach ($vals as $each_school_rule_that_matches_the_tag) {
             $vals_end = end ($vals);
             if ($each_school_rule_that_matches_the_tag === $vals_end) { //配列の最初だったら
@@ -309,7 +310,6 @@ require("header.php");
               echo " | ";
             }
           }
-          echo "（".$row['school_name']."）";
           echo "</a>";
           // echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a>\n";
           echo "</div>\n";

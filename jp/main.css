@@ -292,4 +292,9 @@ input[type=text]:focus {
     font-size: 1.1em;
     border-bottom: solid 1px #bbb;
     padding: 1em 0 1em 0;
-}
+  }
+
+  .tag_item_each_area_school_name {
+    font-size: 1.3em;
+    margin: 0 0 0.2em 0;
+  }
