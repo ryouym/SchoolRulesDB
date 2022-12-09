@@ -287,7 +287,9 @@ input[type=text]:focus {
 
   /* tag_itemページ ----------------------------------------------------------- */
   .tag_item_each_area {
-    margin: 1em 0 0 0;
+    margin: 0;
     background: none;
-    font-size: 1.2em;
-  }
+    font-size: 1.1em;
+    border-bottom: solid 1px #bbb;
+    padding: 1em 0 1em 0;
+}
