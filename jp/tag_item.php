@@ -10,7 +10,7 @@ require("header.php");
   <div class="school_list_area">
     <?php
       //エラーメッセージの表示
-      ini_set("display_errors", "On");
+      // ini_set("display_errors", "On");
 
       // 
       $tag_id_passed_from_previous_page = $_GET['tag_id'];
@@ -269,26 +269,54 @@ require("header.php");
         if($tag_id_passed_from_previous_page == 'regulations_on_membership_in_organizations_outside_the_school'){$sql .= 'regulations_on_membership_in_organizations_outside_the_school = 1';}
         
         $sql .= ' ORDER BY school_displayorder asc';
-        
         $stmt = $dbh->query($sql); // SQLステートメントを実行し、結果を変数に格納
 
-        // foreach文で配列の中身を一行ずつ出力
-        foreach ($stmt as $row) {
+        // 正規表現を使った抽出。1つのspanの中に複数のタグがあった場合、2つ目以降を取得できない問題あり
+        // // foreach文で配列の中身を一行ずつ出力
+        // foreach ($stmt as $row) {
           
-          // $pattern = '#<span class=".*?no_trim.*?">(.+?)<\/span>#'; // 正規表現を記述。デリミタに「#」を利用。
-          $pattern = '#<span class=".*?'.$tag_id_passed_from_previous_page.'*?">(.+?)<\/span>#'; // 正規表現を記述。デリミタに「#」を利用。
-          $subject = $row['school_rules']; // 検索対象
-          preg_match_all( $pattern, $subject, $search_results_for_school_rules);
-          if (isset($search_results_for_school_rules[0][0])) {
-            echo '<div class ="tag_item_each_area">';
-            echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>";
-            echo $search_results_for_school_rules[0][0];
-            echo "（".$row['school_name']."）";
-            echo "</a>\n";
-            // echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a>\n";
-            echo "</div>\n";
+        //   // $pattern = '#<span class=".*?no_trim.*?">(.+?)<\/span>#'; // 正規表現を記述。デリミタに「#」を利用。
+        //   $pattern = '#<span class=".*?'.$tag_id_passed_from_previous_page.'*?">(.+?)<\/span>#'; // 正規表現を記述。デリミタに「#」を利用。
+        //   $subject = $row['school_rules']; // 検索対象
+        //   preg_match_all( $pattern, $subject, $search_results_for_school_rules);
+        //   if (isset($search_results_for_school_rules[0][0])) {
+        //     echo '<div class ="tag_item_each_area">';
+        //     echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>";
+        //     echo $search_results_for_school_rules[0][0];
+        //     echo "（".$row['school_name']."）";
+        //     echo "</a>\n";
+        //     // echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a>\n";
+        //     echo "</div>\n";
+        //   }
+        // }
+        foreach ($stmt as $row) {
+          $content = mb_convert_encoding($row['school_rules'], 'HTML-ENTITIES', 'UTF-8');
+          $dom = new DOMDocument();
+          $dom->loadHTML($content);
+          $xpath = new DOMXPath($dom);
+          $vals=array_map(function($x){
+            return $x->nodeValue;
+          },iterator_to_array($xpath->query('//span[contains(@class, "' . $tag_id_passed_from_previous_page .'")]')));
+
+          echo '<div class ="tag_item_each_area">';
+          echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>";     
+          foreach ($vals as $each_school_rule_that_matches_the_tag) {
+            $vals_end = end ($vals);
+            if ($each_school_rule_that_matches_the_tag === $vals_end) { //配列の最初だったら
+              echo $each_school_rule_that_matches_the_tag;
+            } else {
+              echo $each_school_rule_that_matches_the_tag;
+              echo " | ";
+            }
           }
+          echo "（".$row['school_name']."）";
+          echo "</a>";
+          // echo "<a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a>\n";
+          echo "</div>\n";
+
         }
+
+
       } catch (PDOException $e) {
       exit('データベースに接続できませんでした。' . $e->getMessage());
       }
