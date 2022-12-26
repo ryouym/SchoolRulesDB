@@ -43,6 +43,27 @@ a:hover { text-decoration:none; color: #707070;}
 a:active { color: #707070; }
 a { text-decoration: none }
 
+.hyperlink a:link{
+  color: #326691;
+  text-decoration: underline;
+}
+
+.hyperlink a:visited{
+  color: #326691;
+  text-decoration: underline;
+}
+
+.hyperlink_text_decoration_none a:link{
+  color: #326691;
+  text-decoration: none;
+}
+
+.hyperlink_text_decoration_none a:visited{
+  color: #326691;
+  text-decoration: none;
+}
+
+
 /* wrapper */
   .wrapper {
     max-width: 980px;
@@ -261,12 +282,6 @@ input[type=text]:focus {
   .item_notes {
     margin: 4em 0 0 0;
   }
-
-.hyperlink a:link{
-  color: #326691;
-  text-decoration: underline;
-  font-weight: bold;
-}
 
  /* Missionページ ----------------------------------------------------------- */
   .mission h1 {

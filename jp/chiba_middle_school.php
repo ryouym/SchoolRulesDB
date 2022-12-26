@@ -32,7 +32,7 @@ require("header.php");
         }
         // 学校情報の表示
         echo "<div class='school_list_each_shool_erea'>\n";
-        echo "<div class='school_list_school_name'><a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a></div>\n";
+        echo "<div class='school_list_school_name hyperlink_text_decoration_none'><a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a></div>\n";
 
         // キーワードの表示
         echo "<div class='school_list_rule_keywords_erea'>\n";

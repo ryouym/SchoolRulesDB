@@ -16,13 +16,13 @@ require("header.php");
     <div class="top_border"></div>
   </div>
   <div class="top_group">
-    <div class="top_h1"><h1>Mission</h1></div>
+    <div class="top_h1"><h1>ミッション</h1></div>
     <div class="top_body"><p>校則をインターネット上で広く公開し、第三者が校則をチェックできる環境を整えることで、ブラック校則の解消を目指します。</p></div>
-    <a href="mission.php">もっと詳しく →</a>
+    <div class="hyperlink"><a href="mission.php">もっと詳しく →</a></div>
     <div class="top_border"></div>
   </div>
   <div class="top_group">
-    <div class="top_h1"><h1>Pick Up</h1></div>
+    <div class="top_h1"><h1>ピックアップ</h1></div>
     <div class="top_body">
       <div class="top_pickupgroup">
       <div class="top_pickupgroup">
@@ -43,6 +43,14 @@ require("header.php");
         <div class="top_shcoolrules"><p><a href="https://www.schoolrulesdb.com/item.php?school_id=D112210000789">染色・脱色の跡がある場合は黒染めをする。（千葉県立姉崎高等学校）</a></p></div>
       </div>
     </div>
+    <div class="top_border"></div>
+  </div>
+  <div class="top_group">
+    <div class="top_h1"><h1>お知らせ</h1></div>
+    <div class="top_body hyperlink"><p>2022.12.24<br><a href="https://youtu.be/maTugkQf5Gg?t=1131">TBSラジオ『井上貴博 土曜日の「あ」』</a>に出演しました</p></div>
+    <div class="top_body hyperlink"><p>2022.12.21<br><a href="https://toyokeizai.net/articles/-/639849?page=2">東洋経済オンライン</a>、<a href="https://news.yahoo.co.jp/articles/4f9b06caeadde1788b91fab104a8fe422d070f13">Yahoo!ニュース</a>に掲載されました</p></div>
+    <div class="top_body hyperlink"><p>2022.10.6<br><a href="https://digital.asahi.com/articles/ASQB4530DQ9ZUDCB028.html">朝日新聞</a>に掲載されました</p></div>
+    <div class="top_border"></div>
   </div>
 </div>
 <?php include("footer.php"); ?> <!-- Footerの読み込み -->
