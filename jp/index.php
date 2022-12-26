@@ -1,6 +1,6 @@
 <?php
-$description = "校則を検索できるデータベースサイト「スクールルールズデータベース」。";
-$title = "School Rules Database | TOP";
+$description = "校則を検索できるデータベースサイト。学校名から校則を検索したり、「スカート丈規制」「眉毛加工禁止」「下着規制」などの校則のキーワードから各校を横串で検索できます。";
+$title = "School Rules Database（スクールルールズデータベース） | TOP";
 require("header.php");
 ?>
 <body>

@@ -262,6 +262,11 @@ input[type=text]:focus {
     margin: 4em 0 0 0;
   }
 
+.hyperlink a:link{
+  color: #326691;
+  text-decoration: underline;
+  font-weight: bold;
+}
 
  /* Missionページ ----------------------------------------------------------- */
   .mission h1 {

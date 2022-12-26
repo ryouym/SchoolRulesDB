@@ -30,8 +30,8 @@ exit('データベースに接続できませんでした。' . $e->getMessage()
 }
 
 //header.phpにディスクリプションとタイトルの値を渡す
-$description = "校則を検索できる校則データベースサイトです。";
-$title = "School Rules Database | 校則詳細ページ";
+$description = "校則を検索できるデータベースサイト。学校名から校則を検索したり、「スカート丈規制」「眉毛加工禁止」「下着規制」などの校則のキーワードから各校を横串で検索できます。";
+$title = "School Rules Database（スクールルールズデータベース） | 校則詳細";
 require("header.php");
 ?>
 
@@ -60,7 +60,7 @@ require("header.php");
       //校則取得日・PDF
       echo '<div class="item_notes">';
       echo '<p>校則データ取得年月日：'.date('Y/m/d', strtotime($registration_date_obtained_from_DB)).'</p>'; // Y/m/d形式に変換して表示
-      echo '<p><a href="https://www.schoolrulesdb.com/pdf/'.$school_id_passed_from_previous_page.'.pdf">校則元データ（PDF）</a></p>';
+      echo '<div class="hyperlink"><p><a href="https://www.schoolrulesdb.com/pdf/'.$school_id_passed_from_previous_page.'.pdf">校則元データ（PDF）</a></p></div>';
       echo '</div>';
     ?>
   </div>
