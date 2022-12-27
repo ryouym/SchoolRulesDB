@@ -187,68 +187,14 @@ a { text-decoration: none }
   }
 
 
-/* 検索ページ ----------------------------------------------------------- */
-/* インプットボックス */
-.input_box input {
-  border: 1.5px solid #ccc;
-  border-radius: 3px;
-  box-shadow: none;
-  padding: 0.5em 0.5em 0.5em 0.5em;
-  margin: 0.8em 0.5em 0.8em 0.5em;
-  font-size: 1em;
-}
-
-/* テキストエリアのフォーカス時に枠線を太くしない */
-input[type=text]:focus {
-  outline: none;
-}
-
-/* 都道府県セレクトボックス */
-  /* セレクトボックスのフォーカス時のブラウザが付加する枠線を非表示 */
-  :focus {
-    outline: none;
+/* 市町村を選ぶページ ----------------------------------------------------------- */
+  .city_list {
+    font-size: 1.2em;
+    border-bottom: solid 0.1px #e9e9e9;
+    margin: 0.2em 0 0.2em 0;
   }
 
-  /* ::after要素をabsoluteで表示するために記載 */
-  .prefectures_selectbox_area {
-  position: relative;
-  margin: 0em 0em 0em 0em;
-  float: left;
-  }
-
-  /* セレクトボックス項目の後に"▼"を追加 */
-  .prefectures_selectbox_area::after {
-  pointer-events: none; /*矢印部分をクリックを可能にする*/
-  position: absolute;
-  color: #ffffff;
-  top: 50%;
-  left: 6.7em;
-  transform: translateY(-50%); /*▼を上に移動*/
-  content: "▼";
-  }
-
-  .prefectures_selectbox {
-  /*元々の<select>のスタイルを削除 */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  /*今回指定する<select>のスタイル */
-  width: 10em;
-  height: 2.5em;
-  border: solid #494949 1px ;
-  border-radius: 8px;
-  font-size: 1.2em;
-  padding: 0em 1em 0em 1em;
-  color: #707070;
-  }
-
-  .rules_content {
-    float: left;
-  }
-
-
-/* Chibaページ ----------------------------------------------------------- */
+/* 学校を選ぶページ ----------------------------------------------------------- */
   .school_list_city {
     background-color: #F5F5F5;
     font-size: 1.5em;
@@ -282,7 +228,7 @@ input[type=text]:focus {
     margin: 0.5em 0 0.5em 0;
   }
 
-/* itemページ ----------------------------------------------------------- */
+/* 校則詳細ページ ----------------------------------------------------------- */
   .item_shcool_name {
      font-size: 4em;
    }
@@ -322,11 +268,11 @@ input[type=text]:focus {
     margin: 0;
     background: none;
     font-size: 1.1em;
-    border-bottom: solid 1px #bbb;
+    border-bottom: solid 1px #e9e9e9;
     padding: 1em 0 1em 0;
   }
 
   .tag_item_each_area_school_name {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin: 0 0 0.2em 0;
   }

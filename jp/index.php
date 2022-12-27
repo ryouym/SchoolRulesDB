@@ -11,8 +11,8 @@ require("header.php");
     <div class="top_h1"><h1>校則を検索する</h1></div>
     <div class="top_body"><p>高校の校則を検索できます。<br>※現在は千葉県の公立高校のみ掲載</p></div>
     <div class="search_button"><input type="button" onclick="location.href='tag_list.php'" value="校則の内容から探す"></div>
-    <div class="search_button"><input type="button" onclick="location.href='chiba.php'" value="学校名から探す（高校）"></div>
-    <div class="search_button"><input type="button" onclick="location.href='chiba_middle_school.php'" value="学校名から探す（中学）"></div>
+    <div class="search_button"><input type="button" onclick="location.href='city_high_school.php'" value="学校名から探す（高校）"></div>
+    <div class="search_button"><input type="button" onclick="location.href='list_middle_school.php'" value="学校名から探す（中学）"></div>
     <div class="top_border"></div>
   </div>
   <div class="top_group">

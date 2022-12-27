@@ -1,14 +1,15 @@
 <?php
 $description = "校則を検索できるデータベースサイト。学校名から校則を検索したり、「スカート丈規制」「眉毛加工禁止」「下着規制」などの校則のキーワードから各校を横串で検索できます。";
-$title = "School Rules Database（スクールルールズデータベース） | 東京都";
+$title = "School Rules Database（スクールルールズデータベース） | 学校名から探す";
 require("header.php");
 ?>
 <body>
 <?php include("header_bar.php"); ?> <!-- ヘッダーバーファイルの読み込み -->
 <div class="wrapper">
-  <div class="breadcrumb_trail_area"><p><a href="index.php">ホーム</a> > 東京都</p></div>
-  <h1>東京都</h1>
+  <div class="breadcrumb_trail_area"><p><a href="index.php">ホーム</a> > 市町村を選ぶ</p></div>
+  <h1>市町村を選ぶ（高校）</h1>
   <div class="school_list_area">
+    <p>※現在は千葉県の公立高校のみ掲載</p>
   <?php
       require_once('db_connect.php');
       try {
@@ -19,17 +20,17 @@ require("header.php");
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       //データベースからデータを取得
-      $sql = 'SELECT * FROM schoolrules_table ORDER BY school_displayorder asc'; //SELECT文を変数に格納
+      $sql = 'SELECT school_city, school_id FROM schoolrules_table Where school_category = "高校" ORDER BY school_displayorder asc'; //SELECT文を変数に格納。DISTINCTは重複削除の意味
       $stmt = $dbh->query($sql); // SQLステートメントを実行し、結果を変数に格納
 
       // foreach文で配列の中身を一行ずつ出力
       $previous_city = NULL;
       foreach ($stmt as $row) {
+        // 市町村の表示
         if ($previous_city != $row['school_city']) {
-          echo "<div class='school_list_city'>".$row['school_city']."</div>\n";
+          echo "<div class='hyperlink_text_decoration_none city_list'><a href='http://schoolrulesdb.com/list_high_school.php?school_city=".$row['school_city']."'>".$row['school_city']."</a></div>\n";
+          $previous_city = $row['school_city'];
         }
-        echo "<div class='school_list_school_name'><a href='http://schoolrulesdb.com/item.php?school_id=".$row['school_id']."'>".$row['school_name']."</a></div>\n";
-        $previous_city = $row['school_city'];
       }
       } catch (PDOException $e) {
       exit('データベースに接続できませんでした。' . $e->getMessage());

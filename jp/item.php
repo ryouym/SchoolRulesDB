@@ -42,7 +42,7 @@ require("header.php");
   <div class="item_area">
     <?php
       //パンくずリスト
-      echo '<div class="breadcrumb_trail_area"><p>'.'<a href="index.php">ホーム</a> > '.'<a href="chiba.php">学校名から探す</a> > '.$shool_name_obtained_from_DB.'</p></div>';
+      echo '<div class="breadcrumb_trail_area"><p>'.'<a href="index.php">ホーム</a> > '.'<a href="city_high_school.php">市町村を選ぶ（高校）</a> > '.$shool_name_obtained_from_DB.'</p></div>';
 
       //学校名
       echo '<div class="item_shcool_name"><h1>'.$shool_name_obtained_from_DB.'</h1></div>';
