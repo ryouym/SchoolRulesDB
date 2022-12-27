@@ -46,10 +46,22 @@ require("header.php");
     <div class="top_border"></div>
   </div>
   <div class="top_group">
+    <div class="top_h1"><h1>メディア掲載</h1></div>
+    <div class="media_logo_erea">
+      <div class="media_logo"><a href="https://digital.asahi.com/articles/ASQB4530DQ9ZUDCB028.html"><img src="./img/asahi.png"></a></div>
+      <div class="media_logo"><a href="https://news.yahoo.co.jp/articles/4f9b06caeadde1788b91fab104a8fe422d070f13"><img src="./img/yahoo_news.jpg"></a></div>
+      <div class="media_logo"><a href="https://toyokeizai.net/articles/-/639849"><img src="./img/toyokeizai.jpg"></a></div>
+      <div class="media_logo"><a href="https://youtu.be/maTugkQf5Gg?t=1142"><img src="./img/tbs_radio.png"></a></div>
+    </div>
+    <div class="top_border"></div>
+  </div>
+  <div class="top_group">
     <div class="top_h1"><h1>お知らせ</h1></div>
-    <div class="top_body hyperlink"><p>2022.12.24<br><a href="https://youtu.be/maTugkQf5Gg?t=1131">TBSラジオ『井上貴博 土曜日の「あ」』</a>に出演しました</p></div>
-    <div class="top_body hyperlink"><p>2022.12.21<br><a href="https://toyokeizai.net/articles/-/639849?page=2">東洋経済オンライン</a>、<a href="https://news.yahoo.co.jp/articles/4f9b06caeadde1788b91fab104a8fe422d070f13">Yahoo!ニュース</a>に掲載されました</p></div>
+    <div class="top_body hyperlink"><p>2022.12.24<br><a href="https://youtu.be/maTugkQf5Gg?t=1142">TBSラジオ『井上貴博 土曜日の「あ」』</a>に出演しました</p></div>
+    <div class="top_body hyperlink"><p>2022.12.21<br><a href="https://toyokeizai.net/articles/-/639849">東洋経済オンライン</a>、<a href="https://news.yahoo.co.jp/articles/4f9b06caeadde1788b91fab104a8fe422d070f13">Yahoo!ニュース</a>に掲載されました</p></div>
+    <div class="top_body hyperlink"><p>2022.12.17<br>千葉県流山市の全市立中学の校則を公開しました</p></div>
     <div class="top_body hyperlink"><p>2022.10.6<br><a href="https://digital.asahi.com/articles/ASQB4530DQ9ZUDCB028.html">朝日新聞</a>に掲載されました</p></div>
+    <div class="top_body hyperlink"><p>2022.9.30<br>千葉県の全県立高校の校則を公開しました</p></div>
     <div class="top_border"></div>
   </div>
 </div>
