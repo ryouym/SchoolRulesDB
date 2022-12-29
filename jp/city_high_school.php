@@ -22,11 +22,14 @@ require("header.php");
       //データベースからデータを取得
       $sql = 'SELECT school_city, school_id FROM schoolrules_table Where school_category = "高校" ORDER BY school_displayorder asc'; //SELECT文を変数に格納。DISTINCTは重複削除の意味
       $stmt = $dbh->query($sql); // SQLステートメントを実行し、結果を変数に格納
+      
+      //「全ての市町村」を表示
+      echo "<div class='hyperlink_text_decoration_none city_list'><a href='http://schoolrulesdb.com/list_high_school.php?school_city=all_city'>すべての市町村</a></div>\n";
 
       // foreach文で配列の中身を一行ずつ出力
       $previous_city = NULL;
       foreach ($stmt as $row) {
-        // 市町村の表示
+        // 市町村の表示。ifで市町村の重複表示を回避
         if ($previous_city != $row['school_city']) {
           echo "<div class='hyperlink_text_decoration_none city_list'><a href='http://schoolrulesdb.com/list_high_school.php?school_city=".$row['school_city']."'>".$row['school_city']."</a></div>\n";
           $previous_city = $row['school_city'];

@@ -23,7 +23,11 @@ require("header.php");
       $school_city_passed_from_previous_page = $_GET['school_city'];
 
       //データベースからデータを取得
-      $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校" AND school_city ="'.$school_city_passed_from_previous_page.'" ORDER BY school_displayorder asc'; //SELECT文を変数に格納
+      if ($school_city_passed_from_previous_page = "all_city"){
+        $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校" ORDER BY school_displayorder asc'; //all_cityの場合は全市町村データを取得
+      } else {
+        $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校" AND school_city ="'.$school_city_passed_from_previous_page.'" ORDER BY school_displayorder asc'; //SELECT文を変数に格納
+      }
       $stmt = $dbh->query($sql); // SQLステートメントを実行し、結果を変数に格納
 
       // foreach文で配列の中身を一行ずつ出力
