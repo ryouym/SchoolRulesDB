@@ -58,10 +58,14 @@ require("header.php");
       echo '<p>'.$html_shool_rules_obtained_from_DB.'</p>';  //nl2br関数で改行を反映する
       
       //校則取得日・PDF
-      echo '<div class="item_notes">';
-      echo '<p>校則データ取得年月日：'.date('Y/m/d', strtotime($registration_date_obtained_from_DB)).'</p>'; // Y/m/d形式に変換して表示
-      echo '<div class="hyperlink"><p><a href="https://www.schoolrulesdb.com/pdf/'.$school_id_passed_from_previous_page.'.pdf">校則元データ（PDF）</a></p></div>';
-      echo '</div>';
+      $filename = 'pdf/'.$school_id_passed_from_previous_page.'.pdf';
+
+      if (file_exists($filename)) {
+        echo '<div class="item_notes">';
+        echo '<p>校則データ取得年月日：'.date('Y/m/d', strtotime($registration_date_obtained_from_DB)).'</p>'; // Y/m/d形式に変換して表示
+        echo '<div class="hyperlink"><p><a href="https://www.schoolrulesdb.com/pdf/'.$school_id_passed_from_previous_page.'.pdf">校則元データ（PDF）</a></p></div>';
+        echo '</div>';
+      }
     ?>
   </div>
 </div>

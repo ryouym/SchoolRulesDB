@@ -17,11 +17,19 @@ require("header.php");
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //データベースからデータを取得
-    $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校"'; //SELECT文を変数に格納。DISTINCTは重複削除の意味
+    $sql = 'SELECT SUM(vague_expressions_such_as_typical_of_high_school_students) AS vague_expressions_such_as_typical_of_high_school_students, SUM(uniform) AS uniform, SUM(uniform_processing_prohibition) AS uniform_processing_prohibition FROM schoolrules_table';
     $stmt = $dbh->query($sql); // SQLステートメントを実行し、結果を変数に格納
     
-    //「全ての市町村」を表示
-    var_dump $stmt;
+    //レポートを表示
+    foreach ($stmt as $row) {
+      echo '<pre>';
+      var_dump( $row );
+      echo '</pre>';
+    }
+
+    echo "uniformは";
+    echo $stmt['uniform'];
+
   } catch (PDOException $e) {
     exit('データベースに接続できませんでした。' . $e->getMessage());
   }
