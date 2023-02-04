@@ -142,6 +142,7 @@ require("header.php");
       if($tag_id_passed_from_previous_page == 'no_driving_to_school'){echo '<div class="prefecture_name"><h1>自動車通学禁止</h1></div>';}
       if($tag_id_passed_from_previous_page == 'prohibition_of_obtaining_a_drivers_license'){echo '<div class="prefecture_name"><h1>運転免許証の取得禁止</h1></div>';}
       if($tag_id_passed_from_previous_page == 'restrictions_on_car_pickups_and_drop_offs'){echo '<div class="prefecture_name"><h1>車送迎規制</h1></div>';}
+      if($tag_id_passed_from_previous_page == 'prohibition_of_skateboarding_etc'){echo '<div class="prefecture_name"><h1>スケボー・ローラースケート・キックボード等禁止</h1></div>';}
       if($tag_id_passed_from_previous_page == 'travel_regulation'){echo '<div class="prefecture_name"><h1>旅行規制</h1></div>';}
       if($tag_id_passed_from_previous_page == 'prohibition_of_staying_at_a_friends_house'){echo '<div class="prefecture_name"><h1>友人宅の宿泊禁止</h1></div>';}
       if($tag_id_passed_from_previous_page == 'prohibition_ofholding_meetings_outside_the_school'){echo '<div class="prefecture_name"><h1>校外の集会開催禁止</h1></div>';}

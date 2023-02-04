@@ -6,10 +6,9 @@ require("header.php");
 <body>
 <?php include("header_bar.php"); ?> <!-- ヘッダーバーファイルの読み込み -->
 <div class="wrapper">
-  <div class="breadcrumb_trail_area"><p><a href="index.php">ホーム</a> > <a href="city_high_school.php">市町村を選ぶ（高校）</a> > 学校を選ぶ（高校）</p></div>
+  <div class="breadcrumb_trail_area"><p><a href="index.php">ホーム</a> > <a href="./city_high_school.php/?pref=東京都">市区町村を選ぶ</a> > 学校を選ぶ</p></div>
   <h1>学校を選ぶ（高校）</h1>
   <div class="school_list_area">
-    <p>※現在は千葉県の公立高校のみ掲載</p>
   <?php
       require_once('db_connect.php');
       try {
@@ -21,10 +20,12 @@ require("header.php");
 
       //前ページで選択した市町村データをGetで取得
       $school_city_passed_from_previous_page = $_GET['school_city'];
+      $prefname_received_from_previous_page = $_GET['pref'];
+
 
       //データベースからデータを取得
       if ($school_city_passed_from_previous_page == "all_city"){
-        $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校" ORDER BY school_displayorder asc'; //all_cityの場合は全市町村データを取得
+        $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校" AND school_prefecture ="'.$prefname_received_from_previous_page.'" ORDER BY school_displayorder asc'; //all_cityの場合は全市町村データを取得
       } else {
         $sql = 'SELECT * FROM schoolrules_table Where school_category = "高校" AND school_city ="'.$school_city_passed_from_previous_page.'" ORDER BY school_displayorder asc'; //SELECT文を変数に格納
       }
@@ -171,6 +172,7 @@ require("header.php");
         if($row['no_driving_to_school'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=no_driving_to_school'>自動車通学禁止</a></div>\n";}
         if($row['prohibition_of_obtaining_a_drivers_license'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=prohibition_of_obtaining_a_drivers_license'>運転免許証の取得禁止</a></div>\n";}
         if($row['restrictions_on_car_pickups_and_drop_offs'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=restrictions_on_car_pickups_and_drop_offs'>車送迎規制</a></div>\n";}
+        if($row['prohibition_of_skateboarding_etc'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=prohibition_of_skateboarding_etc'>スケボー・ローラースケート・キックボード等禁止</a></div>\n";}
         if($row['travel_regulation'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=travel_regulation'>旅行規制</a></div>\n";}
         if($row['prohibition_of_staying_at_a_friends_house'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=prohibition_of_staying_at_a_friends_house'>友人宅の宿泊禁止</a></div>\n";}
         if($row['prohibition_ofholding_meetings_outside_the_school'] == 1){echo "<div class='school_list_rule_keywords'><a href='https://www.schoolrulesdb.com/tag_item.php?tag_id=prohibition_ofholding_meetings_outside_the_school'>校外の集会開催禁止</a></div>\n";}

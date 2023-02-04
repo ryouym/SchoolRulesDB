@@ -118,6 +118,7 @@ require("header.php");
     <div class='school_list_rule_keywords'><a href="http://schoolrulesdb.com/tag_item.php?tag_id=prohibition_of_motorcycle_commuting_to_school">バイク通学禁止</a></div>
     <div class='school_list_rule_keywords'><a href="http://schoolrulesdb.com/tag_item.php?tag_id=no_driving_to_school">自動車通学禁止</a></div>
     <div class='school_list_rule_keywords'><a href="http://schoolrulesdb.com/tag_item.php?tag_id=prohibition_of_obtaining_a_drivers_license">運転免許証の取得禁止</a></div>
+    <div class='school_list_rule_keywords'><a href="http://schoolrulesdb.com/tag_item.php?tag_id=regulation_for_holding_meetings_outside_the_school">スケボー・ローラースケート・キックボード等禁止</a></div>
   </div>
   <div class='school_list_city'>校外活動</div>
   <div class='school_list_rule_keywords_erea'>
